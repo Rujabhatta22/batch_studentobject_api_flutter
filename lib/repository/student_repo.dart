@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:batch_student_objbox_api/app/network_connectivity.dart';
 import 'package:batch_student_objbox_api/data_source/local_data_source/student_data_source.dart';
+import 'package:batch_student_objbox_api/data_source/remote_data_source/student_data.dart';
 import 'package:batch_student_objbox_api/model/student.dart';
 
 abstract class StudentRepository {
@@ -12,7 +14,12 @@ abstract class StudentRepository {
 class StudentRepositoryImpl extends StudentRepository {
   @override
   Future<int> addStudent(File? file, Student student) async {
-    return StudentDataSource().addStudent(file, student);
+    bool status = await NetworkConnectivity.isOnline();
+    if (status) {
+      return StudentRemoteDataSource().addStudent(file, student);
+    } else {
+      return StudentDataSource().addStudent(file, student);
+    }
   }
 
   @override

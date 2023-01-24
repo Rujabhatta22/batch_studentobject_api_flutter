@@ -1,4 +1,5 @@
 import 'package:batch_student_objbox_api/data_source/local_data_source/course_data_source.dart';
+import 'package:batch_student_objbox_api/data_source/remote_data_source/course_data_source.dart';
 import 'package:batch_student_objbox_api/model/student.dart';
 
 import '../model/course.dart';
@@ -18,7 +19,7 @@ class CourseRepositoryImpl extends CourseRepository {
 
   @override
   Future<List<Course>> getAllCourse() async {
-    return CourseDataSource().getAllCourse();
+    return CourseRemoteDataSource().getAllCourse();
   }
 
   @override

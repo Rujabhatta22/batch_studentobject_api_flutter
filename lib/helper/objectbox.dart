@@ -18,13 +18,13 @@ class ObjectBoxInstance {
     _course = Box<Course>(_store);
     //insertBatches();
   }
-  void insertBatches() {
-    List<Batch> lstBatches = getAllBatch();
-    if (lstBatches.isEmpty) {
-      addBatch(Batch('29-A'));
-      addBatch(Batch('29-B'));
-    }
-  }
+  // void insertBatches() {
+  //   List<Batch> lstBatches = getAllBatch();
+  //   if (lstBatches.isEmpty) {
+  //     addBatch(Batch('29-A'));
+  //     addBatch(Batch('29-B'));
+  //   }
+  // }
 
   // Initialization of ObjectBox
   static Future<ObjectBoxInstance> init() async {

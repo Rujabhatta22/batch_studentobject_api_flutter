@@ -5,45 +5,59 @@
   "entities": [
     {
       "id": "1:2565643257256048285",
-      "lastPropertyId": "2:7612829032123810429",
+      "lastPropertyId": "3:556354077453258311",
       "name": "Batch",
       "properties": [
         {
           "id": "1:8109444778282203089",
           "name": "batchId",
-          "type": 6,
-          "flags": 129
+          "type": 9,
+          "flags": 2080,
+          "indexId": "2:6394733292826086171"
         },
         {
           "id": "2:7612829032123810429",
           "name": "batchName",
           "type": 9
+        },
+        {
+          "id": "3:556354077453258311",
+          "name": "id",
+          "type": 6,
+          "flags": 129
         }
       ],
       "relations": []
     },
     {
       "id": "2:3755259995034720315",
-      "lastPropertyId": "2:6863266498588394358",
+      "lastPropertyId": "3:1114846831886060134",
       "name": "Course",
       "properties": [
         {
           "id": "1:4877466597412635500",
           "name": "courseId",
-          "type": 6,
-          "flags": 129
+          "type": 9,
+          "flags": 2080,
+          "indexId": "3:7977221579830173449"
         },
         {
           "id": "2:6863266498588394358",
           "name": "courseName",
           "type": 9
+        },
+        {
+          "id": "3:1114846831886060134",
+          "name": "id",
+          "type": 6,
+          "flags": 129
         }
       ],
       "relations": []
     },
     {
       "id": "3:1133708803724402385",
-      "lastPropertyId": "6:3403387864010101592",
+      "lastPropertyId": "7:6544345085600641544",
       "name": "Student",
       "properties": [
         {
@@ -79,6 +93,13 @@
           "flags": 520,
           "indexId": "1:793920947651506709",
           "relationTarget": "Batch"
+        },
+        {
+          "id": "7:6544345085600641544",
+          "name": "studentId",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "4:7748690702518150898"
         }
       ],
       "relations": [
@@ -91,7 +112,7 @@
     }
   ],
   "lastEntityId": "3:1133708803724402385",
-  "lastIndexId": "1:793920947651506709",
+  "lastIndexId": "4:7748690702518150898",
   "lastRelationId": "1:3909601909676186380",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

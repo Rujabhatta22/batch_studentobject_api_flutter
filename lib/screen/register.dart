@@ -202,7 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               .map(
                                 (batch) => DropdownMenuItem(
                                   value: batch,
-                                  child: Text(batch!.batchName),
+                                  child: Text(batch!.batchName!),
                                 ),
                               )
                               .toList(),
@@ -239,7 +239,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           items: snapshot.data!
                               .map((course) => MultiSelectItem(
                                     course,
-                                    course.courseName,
+                                    course.courseName!,
                                   ))
                               .toList(),
                           listType: MultiSelectListType.CHIP,
