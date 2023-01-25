@@ -23,8 +23,13 @@ class StudentRepositoryImpl extends StudentRepository {
   }
 
   @override
-  Future<List<Student>> getStudents() {
-    return StudentDataSource().getStudents();
+  Future<List<Student>> getStudents() async {
+    bool status = await NetworkConnectivity.isOnline();
+    if (status) {
+      return StudentDataSource().getStudents();
+    } else {
+      return [];
+    }
   }
 
   @override

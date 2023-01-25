@@ -1,3 +1,5 @@
+import 'package:batch_student_objbox_api/model/course.dart';
+import 'package:batch_student_objbox_api/repository/student_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:batch_student_objbox_api/repository/course_repository.dart';
 
@@ -10,11 +12,11 @@ class CourseStudentScreen extends StatefulWidget {
 }
 
 class _CourseStudentScreenState extends State<CourseStudentScreen> {
-  String courseName = '';
+  late Course course;
 
   @override
   void didChangeDependencies() {
-    courseName = ModalRoute.of(context)!.settings.arguments as String;
+    course = ModalRoute.of(context)!.settings.arguments as Course;
     super.didChangeDependencies();
   }
 
@@ -25,7 +27,7 @@ class _CourseStudentScreenState extends State<CourseStudentScreen> {
         title: Text('Students in $courseName'),
       ),
       body: FutureBuilder(
-        future: CourseRepositoryImpl().getStudentsInEachCourse(courseName),
+        future: StudentRepositoryImpl().getStudentsByCourse(course.courseId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final lstStudents = snapshot.data!;
