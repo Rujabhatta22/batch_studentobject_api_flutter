@@ -19,6 +19,10 @@ class Student {
   String? username;
   String? password;
 
+  @JsonKey(name: 'batch')
+  Batch? batches;
+  @JsonKey(name: 'course')
+  List<Course>? courses;
   final batch = ToOne<Batch>();
   final course = ToMany<Course>();
 

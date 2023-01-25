@@ -29,6 +29,11 @@ class StudentRepositoryImpl extends StudentRepository {
 
   @override
   Future<bool> loginStudent(String username, String password) async {
-    return StudentDataSource().loginStudent(username, password);
+    bool status = await NetworkConnectivity.isOnline();
+    if (status) {
+      return StudentRemoteDataSource().loginStudent(username, password);
+    } else {
+      return StudentDataSource().loginStudent(username, password);
+    }
   }
 }

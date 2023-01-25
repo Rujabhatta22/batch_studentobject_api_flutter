@@ -1,4 +1,4 @@
-#Tue Jan 24 11:49:08 NPT 2023
+#Wed Jan 25 09:34:22 NPT 2023
 base.0=/Users/rujabhatta/batch_student_objbox_api_starter/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:batch_student_objbox_api/app/constants.dart';
+import 'package:batch_student_objbox_api/data_source/remote_data_source/response/login_response.dart';
 import 'package:batch_student_objbox_api/helper/http_service.dart';
 import 'package:batch_student_objbox_api/model/student.dart';
 import 'package:dio/dio.dart';
@@ -41,6 +42,27 @@ class StudentRemoteDataSource {
       }
     } catch (e) {
       return 0;
+    }
+  }
+
+  Future<bool> loginStudent(username, password) async {
+    try {
+      Response response = await _httpServices.post(
+        Constant.studentLoginURL,
+        data: {
+          'username': username,
+          'password': password,
+        },
+      );
+      if (response.statusCode == 200) {
+        LoginResponse loginResponse = LoginResponse.fromJson(response.data);
+        Constant.token = "Bearer ${loginResponse.token}";
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
     }
   }
 }
